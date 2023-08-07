@@ -6,6 +6,8 @@ The medals are provided by a data.json file which can be fetched from the API pr
 To run the API project, go to the root directory of the project and run ```lein run```
 or an uberjar can also be created and run by a java process.
 
+A deliberate sleep time of 1 sec has been added in the API service request to show loading state.
+
 If the API server is off, the response will be error in fetching from server.
 
 ### Environment Setup
