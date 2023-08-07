@@ -35,8 +35,8 @@
   [id]
   (let [name (rf/subscribe [::subs/name])
         data @(rf/subscribe [::subs/medal-data])
-        fetched? (rf/subscribe [::subs/fetched?])
-        busy? (rf/subscribe [::subs/busy?])
+        fetched? @(rf/subscribe [::subs/fetched?])
+        busy? @(rf/subscribe [::subs/busy?])
         sort-by @(rf/subscribe [::subs/sort-by])
         error-text @(rf/subscribe [::subs/error])
         tdata (->> data
@@ -44,20 +44,20 @@
                 (take 10))]
     [:div {:id id}
      [:h1 @name]
-     (when-not @fetched?
+     (when-not fetched?
        [button
         {:variant  "contained"
          :color    "primary"
          :on-click #(rf/dispatch [::event/fetch-data])}
         "Fetch medals"])
-     (when error-text
+     (when (and error-text (not fetched?))
        [:h3 error-text])
-     (if @busy?
+     (if busy?
        [box {:sx {:width "500px" :padding "50px"}}
         [skeleton]
         [skeleton {:animation "wave"}]
         [skeleton {:animation false}]]
-       (when @fetched?
+       (when fetched?
          [:<>
           [form-control {:variant "outlined"
                          :style {:width "100px"}}
