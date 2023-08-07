@@ -1,7 +1,8 @@
 (ns olympic-api.core
   (:require
    [org.httpkit.server :as server]
-   [olympic-api.handler :refer [handler]]))
+   [olympic-api.handler :refer [handler]])
+  (:gen-class))
 
 (defn -main
   "Starts the main server"
