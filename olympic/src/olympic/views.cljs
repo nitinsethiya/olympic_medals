@@ -28,11 +28,10 @@
       "bronze" (sort-by (juxt :bronze :gold :silver :total) data))))
 
 (defn olympic-medal
-  "Takes id for this component to be mounted on place
-  Has option to select the sort by functionality by chossing the
+  "Has option to select the sort by functionality by chossing the
   sort-options.
   Display top 10 countries based on the sort option selected"
-  [id]
+  []
   (let [name (rf/subscribe [::subs/name])
         data @(rf/subscribe [::subs/medal-data])
         fetched? @(rf/subscribe [::subs/fetched?])
@@ -42,7 +41,7 @@
         tdata (->> data
                 (sorted-data sort-by)
                 (take 10))]
-    [:div {:id id}
+    [:div {:id "olympic-widget"}
      [:h1 @name]
      (when-not fetched?
        [button
