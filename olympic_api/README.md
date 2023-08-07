@@ -1,44 +1,15 @@
 # olympic-api
 
-FIXME: description
+API server to get medal data
+The sever can be run by simply running ```lein run``` from the root directory of this project.
 
-## Installation
+For now as a cors rule, i have only allowed http://localhost:8280 as the only origon to be accepted on which our API project runs.
 
-Download from http://example.com/FIXME.
+This project is using leinegen template and if its not present the it can also be run using the jar file. I have also included the jar file in the source of this project
 
-## Usage
+Please use ```java -jar olympic-api-0.1.0-standalone.jar ``` to run the server.
 
-FIXME: explanation
+In order for the server to work, the medals data in a file ```data.json``` should be present in the same directory as the jar directory
 
-    $ java -jar olympic-api-0.1.0-standalone.jar [args]
 
-## Options
 
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
-
-## License
-
-Copyright © 2023 FIXME
-
-This program and the accompanying materials are made available under the
-terms of the Eclipse Public License 2.0 which is available at
-http://www.eclipse.org/legal/epl-2.0.
-
-This Source Code may also be made available under the following Secondary
-Licenses when the conditions for such availability set forth in the Eclipse
-Public License, v. 2.0 are satisfied: GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or (at your
-option) any later version, with the GNU Classpath Exception which is available
-at https://www.gnu.org/software/classpath/license.html.
