@@ -4,8 +4,7 @@
    [re-frame.core :as re-frame]
    [olympic.events :as events]
    [olympic.views :as views]
-   [olympic.config :as config]
-   ))
+   [olympic.config :as config]))
 
 
 (defn dev-setup []
@@ -16,7 +15,7 @@
   (re-frame/clear-subscription-cache!)
   (let [root-el (.getElementById js/document "app")]
     (rdom/unmount-component-at-node root-el)
-    (rdom/render [views/main-panel] root-el)))
+    (rdom/render [views/olympic-medal "olympic"] root-el)))
 
 (defn init []
   (re-frame/dispatch-sync [::events/initialize-db])

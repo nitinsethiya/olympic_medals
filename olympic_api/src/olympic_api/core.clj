@@ -4,7 +4,7 @@
    [olympic-api.handler :refer [handler]]))
 
 (defn -main
-  "I don't do a whole lot ... yet."
+  "Starts the main server"
   [& args]
   (server/run-server (handler) {:port 8080
                                 :thread 128

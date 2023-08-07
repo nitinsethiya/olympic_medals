@@ -1,4 +1,7 @@
 (ns olympic.db)
 
 (def default-db
-  {:name "re-frame"})
+  {:name "Olympic Medal Count"
+   :medal-data []
+   :sort-by "gold"
+   :fetched? false})

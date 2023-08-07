@@ -30,7 +30,6 @@
                                                       exception-middleware
                                                       format-response-middleware]}}))
 
-             :access-control-allow-origin [#"http://localhost:8081"]
+             :access-control-allow-origin [#"http://localhost:8280"]
              :access-control-allow-credentials true
-             :access-control-allow-methods [:get :post :put :delete]
-             ))
+             :access-control-allow-methods [:get :post :put :delete]))
