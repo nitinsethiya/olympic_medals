@@ -23,19 +23,13 @@
   ::set-medals
   (fn [{:keys [db]} [_ data]]
     (let [error? (and (contains? data :success)
-                   (not (:success data)))
-          data-with-total (when-not error?
-                            (map (fn [{:keys [gold silver bronze]
-                                       :as row}]
-                                   (assoc row :total
-                                     (+ gold silver bronze)))
-                              data))]
+                   (not (:success data)))]
       {:db (if error?
              (assoc db :error-text
                (str "Error in fetching medal data "
                  "with error code - "  (:error-code data) )
                :fetched? false)
-             (assoc db :medal-data data-with-total :fetched? true))
+             (assoc db :medal-data data :fetched? true))
        :dispatch [::set-busy? false]})))
 
 (rf/reg-fx

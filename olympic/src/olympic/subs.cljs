@@ -18,6 +18,18 @@
     (:medal-data db)))
 
 (rf/reg-sub
+  ::medal-data-with-total
+  (fn [db]
+    (let [data-with-total
+          (->> db
+            :medal-data
+            (map (fn [{:keys [gold silver bronze]
+                       :as row}]
+                   (assoc row :total
+                     (+ gold silver bronze)))))]
+      data-with-total)))
+
+(rf/reg-sub
   ::fetched?
   (fn [db]
     (:fetched? db)))
